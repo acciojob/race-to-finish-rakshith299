@@ -11,8 +11,8 @@ for(let i = 0; i < 5; i++){
 
     promises.push(new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve();
-        }, randomNumber)
+            resolve(`resolved after ${randomNumber} sec`);
+        }, randomNumber * 1000)
     }))
 
 }
@@ -22,7 +22,7 @@ const div = document.getElementById("output");
 Promise.any(promises)
 
 .then((result) => {   
-    div.innerText = "Atleast one Promise is fulfilled";
+    div.innerText = result;
 })
 
 .catch((result) => {
